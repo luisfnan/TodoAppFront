@@ -1,0 +1,10 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <input formControlName="title" placeholder="Nueva tarea"/>
+  <button type="submit" [disabled]="taskForm.invalid">Agregar</button>
+  <div *ngIf="taskForm.controls['title'].errors?.['maxlength']">
+    El título no puede tener más de 100 caracteres.
+  </div>
+  <div *ngIf="taskForm.controls['title'].errors?.['required']">
+    El título es obligatorio.
+  </div>
+</form>
